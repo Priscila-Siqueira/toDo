@@ -4,7 +4,7 @@
 3. git status
 4. git branch -M main
 5. git commit -m "subindo a primeira versão"
-6. 
+6. git push
 
 
 # DOCUMENTAÇÃO DO toDo
