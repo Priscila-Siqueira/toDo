@@ -1,24 +1,55 @@
 //const formulario = document.querySelector("[data-form]");
 //console.log(formulario);
 
-const lista = document.querySelector("[data-list]");
 
-const novaTarefa = document.querySelector("[data-form-button]");
 
 const criarTarefa = (evento) => {
     evento.preventDefault();
+    
+    const lista = document.querySelector("[data-list]");
     const input = document.querySelector("[data-form-input]");
     const valor = input.value;
-    console.log(valor);
+    //console.log(valor);
+    
+    const tarefa = document.createElement('li');
+    tarefa.classList.add('task');
+    const conteudo = `<p class = "content">${valor}<p/>`; 
+    
+    tarefa.innerHTML = conteudo;
+    tarefa.appendChild(BotaoConclui());
+    lista.appendChild(tarefa);
+
+
+
+    input.value = "";
+    // limpa o valor do input na tela, após o uso para cadastro
 }
 
+// Preciso pegar a const conteudo, inserir ela dentro de uma tag li e inserir essa tag li
+// na ul.
+
+
+
+
+const novaTarefa = document.querySelector("[data-form-button]");
 
 // Evento = Ação
 // addEventListener = Espera um evento, e o que vai acontecer
-novaTarefa.addEventListener('click', criarTarefa);
+novaTarefa.addEventListener('click', criarTarefa);  // Criar uma nova tarefa
 
+//Componente
+const BotaoConclui = () =>{
+    const botaoConclui = document.createElement('button');
 
-// Criar uma nova tarefa
+    botaoConclui.classList.add('check-button');
+    botaoConclui.innerText = 'concluir'
+
+    botaoConclui.addEventListener('click', () => {
+        console.log('Fui clicado!!!');
+
+    });
+    return botaoConclui;
+};
 
 
 
@@ -29,10 +60,15 @@ novaTarefa.addEventListener('click', criarTarefa);
 // O que vai acontecer - nova tarefa
 // Onde irá ocorrer o evento - button
 
+
+
+
 //function somarDoisValores(num1, num2) {
     //let soma = num1 + num2;
     //console.log(soma);
 //}
+
+
 
 //const diminuirDoisValores = (num1, num2) => {
     //let diminuir = num1 - num2;
